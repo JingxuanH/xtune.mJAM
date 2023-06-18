@@ -38,8 +38,6 @@ xtune_mJAM(
 \item{c}{The elastic-net mixing parameter ranging from 0 to 1. When  \eqn{c} = 1, the model corresponds to Lasso. When \eqn{c} is set to 0, it corresponds to Ridge. For values between 0 and 1 (with a default of 0.5), the model corresponds to the elastic net.}
 
 \item{sigma.square}{A user-supplied noise variance estimate. Typically, this is left unspecified, and the function automatically computes an estimated sigma square values using R package \code{selectiveinference}.}
-
-\item{epsilon}{}
 }
 \value{
 
