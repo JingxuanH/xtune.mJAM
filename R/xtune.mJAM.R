@@ -17,6 +17,7 @@
 #' @param standardize
 #' @param intercept
 #' @param epsilon
+#' @import glmnet crayon selectiveInference lbfgs
 #'
 #' @return
 #' @export

@@ -1,0 +1,77 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+xtune.mJAM: External-informed tuning of regularized regression for multi-population summary statistics
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+&#x1F4D7;  Introduction
+-----------------------
+
+Regularized regression is a common approach to fit high-dimensional data such as genetics data. In standard regularized regression, a single penalty parameter $\lambda$ applied equally to all regression coefficients to control the amount of regularization in the model. `xtune`, a previous study proposed a novel method that model the penalty parameter as a log-linear function of the prior data $**Z**$ to introduce the feature-specific shrinkage parameters. To this end, we extend the `xtune` from modeling with individual level data to summary statistics by incorporating the `mJAM` method which utilizes the Cholesky decomposition to perform the joint analysis of marginal summary statistics for multi-population GWAS studies.
+
+
+&#x1F4D9;  Installation
+-----------------------
+`xtune.mJAM` can be installed from Github using the following command:
+
+``` r
+# install.packages("devtools")
+
+library(devtools)
+devtools::install_github("JingxuanH/xtune.mJAM")
+
+library("xtune.mJAM")
+```
+
+
+&#x270D; Citation
+-----------------------
+
+* **`xtune`** package:
+```{r}
+citation("xtune.mJAM")
+```
+
+Feel free to contact `hejingxu@usc.edu` if you have any questions.
+
+
+&#x1F4D8;  Examples
+-------------------
+
+```{r example}
+library(xtune.mJAM)
+
+## load the example data
+data(example)
+```
+
+```{r}
+example$beta.gwas
+example$N.Gx
+example$Geno[[1]][1:5,1:5]
+example$Z
+```
+
+```{r}
+fit = xtune_mJAM(betas.Gx = example$beta.gwas, N.Gx =example$N.Gx, Geno = example$Geno, Z = example$Z, c = 0.5)
+fit$penalty.vector
+fit$beta.est
+```
+
+
+
+
