@@ -43,7 +43,7 @@ library("xtune.mJAM")
 
 * **`xtune`** package:
 ```{r}
-citation("xtune.mJAM")
+citation("xtune.mJAM") 
 ```
 
 Feel free to contact `hejingxu@usc.edu` if you have any questions.
