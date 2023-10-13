@@ -209,7 +209,7 @@ update_alpha.EN <- function(X, Y, Z,c,alpha.old, alpha.max, epsilon, sigma.squar
 
     ## given delta update alpha
     alpha.inner.new <- optim(alpha.old, likelihood.alpha.theta.EN,likelihood.alpha.theta.gradient.EN,
-                             c =c,Z = Z, theta = theta, delta = delta.est,method = "BFGS", upper = c(alpha.max*epsilon, rep(Inf, length(alpha.old)-1)))$par
+                             c =c,Z = Z, theta = theta, delta = delta.est,method = "L-BFGS-B", upper = c(alpha.max*epsilon, rep(Inf, length(alpha.old)-1)))$par
     if (sum(abs(alpha.inner.new - alpha.inner.old)) < tolerance_inner) {
       break
     }
